@@ -1,0 +1,15 @@
+<%= simple_form_for( @job, :validate => true ) do |f| %>
+
+   <%= f.input :description %>
+
+  <div id="user">
+    <div id="user_from_list">
+      <%= f.association :user, :collection => User.all(:order => 'name'), :prompt => 'Choose an existing user' %>
+    </div>
+    <%= link_to_add_association 'add a new user', f, :user %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
